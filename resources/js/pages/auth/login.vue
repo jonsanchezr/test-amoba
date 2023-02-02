@@ -21,6 +21,20 @@
             </div>
           </div>
 
+          <div class="mb-3 row">
+            <div class="col-md-3" />
+            <div class="col-md-7 d-flex">
+              User: {{ form.email }}             
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col-md-3" />
+            <div class="col-md-7 d-flex">
+              Pass: {{ form.password }}             
+            </div>
+          </div>
+
           <!-- Remember Me -->
           <div class="mb-3 row">
             <div class="col-md-3" />
@@ -70,8 +84,8 @@ export default {
 
   data: () => ({
     form: new Form({
-      email: '',
-      password: ''
+      email: 'm.perez@busup.com',
+      password: '123456789'
     }),
     remember: false
   }),

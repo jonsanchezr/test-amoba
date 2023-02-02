@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Route extends Model
 {
@@ -18,4 +19,12 @@ class Route extends Model
         'start_timestamp',
         'end_timestamp'
     ];
+
+    /**
+     * @return HasOne
+     */
+    public function routeData(): HasOne
+    {
+        return $this->hasOne(RouteData::class);
+    }
 }

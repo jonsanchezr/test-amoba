@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CalendarDaysDisabledController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\RouteController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuthController;
@@ -29,6 +33,19 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
+
+    // Routes
+    Route::get('routes', [RouteController::class, 'index']);
+
+    // CalendarDaysDisabled
+    Route::get('calendar_days_disabled', [CalendarDaysDisabledController::class, 'index']);
+
+    // Reservations
+    Route::get('reservations/{route}', [ReservationController::class, 'index']);
+
+    // Services
+    Route::get('services/{route}', [ServiceController::class, 'index']);
+
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

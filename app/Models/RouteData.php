@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class RouteData extends Model
 {
@@ -33,4 +34,12 @@ class RouteData extends Model
         'sat',
         'sun'
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function route(): BelongsTo
+    {
+        return $this->belongsTo(Route::class);
+    }
 }
