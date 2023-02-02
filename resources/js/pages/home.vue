@@ -1,92 +1,73 @@
 <template>
   <div class="row">
-    <div class="col-lg-2" style="background-color: RGBA(33,37,41,var(--bs-bg-opacity,1));">
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-            Orders
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-            Customers
-          </a>
-        </li>
-      </ul>
+    <date-picker v-model="range" is-range>
+      <template v-slot="{ inputValue, inputEvents }">
+        <div class="flex justify-center items-center">
+          <input
+            :value="inputValue.start"
+            v-on="inputEvents.start"
+            class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
+          />
+          <svg
+            class="w-4 h-4 mx-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            style="width: 1rem;"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
+          <input
+            :value="inputValue.end"
+            v-on="inputEvents.end"
+            class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
+          />
+        </div>
+      </template>
+    </date-picker>
+    <div class="col-lg-9">
+      <FullCalendar :options="calendarOptions" />
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-3">
+      <div style="background-color: RGBA(33,37,41,var(--bs-bg-opacity,1));border-radius: 20px;">
+        <h2 style="text-align: center;color: white;">
+          Rutas
+        </h2>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item" style="font-size: 14px;" v-for="(route) in routes">
+            <a href="#" class="nav-link" aria-current="page" @click="changeRouteSelected(route)">
+              {{route.title}}
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <div class="row">
-        <card :title="$t('home')" style="margin-bottom: 10px;">
-          {{ $t('you_are_logged_in') }}
-        </card>
-        <date-picker v-model="range" is-range>
-          <template v-slot="{ inputValue, inputEvents }">
-            <div class="flex justify-center items-center">
-              <input
-                :value="inputValue.start"
-                v-on="inputEvents.start"
-                class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
-              />
-              <svg
-                class="w-4 h-4 mx-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                style="width: 1rem;"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-              <input
-                :value="inputValue.end"
-                v-on="inputEvents.end"
-                class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
-              />
-            </div>
-          </template>
-        </date-picker>
-        <div class="col-lg-9">
-          <FullCalendar :options="calendarOptions" />
-        </div>
-        <div class="col-lg-3">
-          <div style="background-color: RGBA(33,37,41,var(--bs-bg-opacity,1));border-radius: 20px;">
-            <h2 style="text-align: center;color: white;">
-              Rutas
-            </h2>
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item" style="font-size: 14px;" v-for="(route) in routes">
-                <a href="#" class="nav-link" aria-current="page" @click="changeRouteSelected(route)">
-                  {{route.title}}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div style="background-color: #737373; border-radius: 20px;">
+        <h2 style="text-align: center;color: white;">
+          Leyenda
+        </h2>
+        <ul class="nav nav-pills flex-column mb-auto" style="text-align: center;">
+          <li class="nav-item" style="font-size: 16px;">
+            <span style="color: #fff2d9;">Días deshabilitados</span>
+          </li>
+
+          <li class="nav-item" style="font-size: 16px;">
+            <span style="color: #c0392b;">Días fuera de frecuencia</span>
+          </li>
+
+          <li class="nav-item" style="font-size: 16px;">
+            <span style="color: #27ae60;">Días Reservados</span>
+          </li>
+
+          <li class="nav-item" style="font-size: 16px;">
+            <span style="color: #235a81;">Dia con servicio</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

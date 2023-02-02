@@ -16,23 +16,23 @@ class CalendarDaysDisabledSeeder extends Seeder
     {
         $calendarDaysDisableds = collect([
             [
-                "calendar_id" => 2,
-                "day" => "2023-02-13 00:00:00",
+                "calendar_id" => 1,
+                "day" => "2023-02-07 00:00:00",
                 "enabled" => 1
             ],
             [
-                "calendar_id" => 2,
-                "day" => "2023-02-14 00:00:00",
-                "enabled" => 1
-            ],
-            [
-                "calendar_id" => 2,
-                "day" => "2023-02-15 00:00:00",
-                "enabled" => 1
-            ],
-            [
-                "calendar_id" => 2,
+                "calendar_id" => 1,
                 "day" => "2023-02-21 00:00:00",
+                "enabled" => 1
+            ],
+            [
+                "calendar_id" => 1,
+                "day" => "2023-02-11 00:00:00",
+                "enabled" => 1
+            ],
+            [
+                "calendar_id" => 1,
+                "day" => "2023-02-27 00:00:00",
                 "enabled" => 1
             ],
             [

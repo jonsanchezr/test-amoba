@@ -4,6 +4,7 @@ use App\Http\Controllers\CalendarDaysDisabledController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController AS UsersController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuthController;
@@ -45,6 +46,10 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     // Services
     Route::get('services/{route}', [ServiceController::class, 'index']);
+    Route::get('services_all', [ServiceController::class, 'allServices']);
+
+    // Users
+    Route::get('users_all', [UsersController::class, 'allUsers']);
 
 });
 

@@ -10,13 +10,6 @@
       </button>
 
       <div id="navbar" class="collapse navbar-collapse">
-        <!-- <ul class="navbar-nav">
-          <locale-dropdown />
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul> -->
-
         <ul class="navbar-nav ms-auto">
           <!-- Authenticated -->
           <li v-if="user" class="nav-item dropdown">
@@ -27,11 +20,6 @@
               {{ user.name }}
             </a>
             <div class="dropdown-menu">
-              <router-link :to="{ name: 'settings.profile' }" class="dropdown-item ps-3">
-                <fa icon="cog" fixed-width />
-                {{ $t('settings') }}
-              </router-link>
-
               <div class="dropdown-divider" />
               <a href="#" class="dropdown-item ps-3" @click.prevent="logout">
                 <fa icon="sign-out-alt" fixed-width />

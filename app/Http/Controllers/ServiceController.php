@@ -21,4 +21,14 @@ class ServiceController extends Controller
 
         return response()->json($services->toArray());
     }
+
+    /**
+     * Display all Services.
+     */
+    public function allServices()
+    {
+        $services = Service::all();
+
+        return response()->json($services->toArray());
+    }
 }
