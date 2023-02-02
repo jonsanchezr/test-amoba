@@ -1,4 +1,4 @@
-# Pegasus
+# Amoba
 
 Proyecto con Laravel 8.x y VueJS 2.x.
 
