@@ -125,3 +125,8 @@ Existe más documentación en el directorio /docs dee este Repositorio.
 
 ## Autor
 Jonathan Sanchez - jonathanch1991@gmail.com
+
+## Screenshot
+[![screenshot-1](https://raw.githubusercontent.com/jonsanchezr/test-amoba/main/z-screenshot/screenshot-1.png "screenshot-1")](https://raw.githubusercontent.com/jonsanchezr/test-amoba/main/z-screenshot/screenshot-1.png "screenshot-1")
+
+[![screenshot-2](https://raw.githubusercontent.com/jonsanchezr/test-amoba/main/z-screenshot/screenshot-2.png "screenshot-2")](https://raw.githubusercontent.com/jonsanchezr/test-amoba/main/z-screenshot/screenshot-2.png "screenshot-2")
